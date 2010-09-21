@@ -11,8 +11,6 @@ syntax on
 
 " Search Stuff
 set nohlsearch
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase
 set smartcase
 
