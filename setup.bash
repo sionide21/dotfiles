@@ -2,5 +2,4 @@
 
 _dotfiles_dir="$(dirname $BASH_SOURCE)"
 
-source $_dotfiles_dir/completions.bash
-source $_dotfiles_dir/functions.bash
+source $_dotfiles_dir/bashrc.bash
