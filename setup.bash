@@ -2,4 +2,4 @@
 
 _dotfiles_dir="$(dirname $BASH_SOURCE)"
 
-source $_dotfiles_dir/bashrc.bash
+source $_dotfiles_dir/dotfiles/bashrc.bash
