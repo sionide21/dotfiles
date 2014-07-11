@@ -9,6 +9,10 @@ app_path() {
     fi
 }
 
+iterm_title() {
+    echo -ne "\033]0;"$1"\007"
+}
+
 # cd, but better
 gt() {
     app_path $1 && cd $APP_PATH
@@ -23,7 +27,8 @@ complete -F _poi_completion edit
 
 # Start a server in a foreman project
 run() {
-    app_path $1 && shift && (cd $APP_PATH && foreman start $@)
+    local PROJECT=$1
+    app_path $PROJECT && shift && (cd $APP_PATH && iterm_title "$PROJECT" && foreman start $@)
 }
 complete -F _foreman_completion run
 
