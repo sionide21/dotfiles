@@ -28,7 +28,7 @@ complete -F _poi_completion edit
 # Start a server in a foreman project
 run() {
     local PROJECT=$1
-    app_path $PROJECT && shift && (cd $APP_PATH && iterm_title "$PROJECT" && foreman start $@)
+    app_path $PROJECT && shift && (cd $APP_PATH && iterm_title "$PROJECT" && bundle exec foreman start $@)
 }
 complete -F _foreman_completion run
 
