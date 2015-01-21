@@ -26,6 +26,7 @@ prompt_command () {
     export PS1="\[${TITLEBAR}\]${CYAN}[ ${BCYAN}\u${GREEN}@${BCYAN}\
 \h${DKGRAY}(${LOAD}) ${WHITE}${TIME} ${CYAN}]${RED}$ERRPROMPT${GRAY}\
 \w\n${GREEN}${BRANCH}${DEFAULT}$ "
+    iterm_title # Reset the title if set by last command
 }
 PROMPT_COMMAND=prompt_command
 
