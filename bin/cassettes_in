@@ -1,0 +1,5 @@
+#! /bin/bash
+
+find spec/tcr_cassettes | while read cassette; do
+  grep -rq $(basename $cassette .json) $@ && echo $cassette
+done
