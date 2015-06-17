@@ -11,3 +11,4 @@ _dotfile() {
 }
 
 _dotfile vimrc.vim
+_dotfile ctags.conf

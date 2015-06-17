@@ -13,6 +13,11 @@ iterm_title() {
     echo -ne "\033]0;"$1"\007"
 }
 
+# ctags generation for rails
+retags() {
+  ctags -R --languages=ruby --exclude=.git --exclude=log .
+}
+
 # cd, but better
 gt() {
     app_path $1 && cd $APP_PATH
