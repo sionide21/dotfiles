@@ -41,6 +41,6 @@ complete -F _foreman_completion run
 logcat() {
     local environment="development"
     [ -z "$2" ] || environment=$2
-    app_path $1 && tail -f $APP_PATH/log/${environment}.log
+    app_path $1 && less -r +F $APP_PATH/log/${environment}.log
 }
 complete -F _foreman_completion logcat
