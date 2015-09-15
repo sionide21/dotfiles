@@ -26,7 +26,11 @@ complete -F _poi_completion gt
 
 # Open app in atom
 edit() {
-    app_path $1 && atom $APP_PATH
+    if [ -z "$1" ]; then
+      atom $PWD
+    else
+      app_path $1 && atom $APP_PATH
+    fi
 }
 complete -F _poi_completion edit
 
