@@ -12,3 +12,8 @@ export CLICOLOR="1"
 export GREP_OPTIONS="--color"
 export HISTCONTROL="ignoreboth"
 export EDITOR="vim"
+
+# Aliases
+alias pp="pbpaste | pipewrench"
+alias pw="pipewrench"
+alias ve="vacuform exec"
