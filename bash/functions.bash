@@ -1,11 +1,13 @@
 app_path() {
-    [ -z "$1" ] && return -1
-    local arg
-    arg=`basename $1`
-    APP_PATH="$PROJECTS_DIR/$arg"
-    if [ ! -d "$APP_PATH" ]; then
-        echo "Cannot find $1"
-        return -1
+    if [ -z "$1" ]; then
+        APP_PATH="$PWD"
+    else
+        local arg=`basename $1`
+        APP_PATH="$PROJECTS_DIR/$arg"
+        if [ ! -d "$APP_PATH" ]; then
+            echo "Cannot find $1"
+            return -1
+        fi
     fi
 }
 
@@ -26,18 +28,15 @@ complete -F _poi_completion gt
 
 # Open app in atom
 edit() {
-    if [ -z "$1" ]; then
-      atom $PWD
-    else
-      app_path $1 && atom $APP_PATH
-    fi
+    app_path $1 && atom $APP_PATH
 }
 complete -F _poi_completion edit
 
 # Start a server in a foreman project
 run() {
     local PROJECT=$1
-    app_path $PROJECT && shift && (cd $APP_PATH && iterm_title "$PROJECT" && bundle exec foreman start $@)
+    shift
+    app_path $PROJECT && (cd $APP_PATH && iterm_title "$(basename "$PWD")" && bundle exec foreman start $@)
 }
 complete -F _foreman_completion run
 
