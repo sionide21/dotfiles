@@ -1,0 +1,1 @@
+grep : | pipewrench -ms 'split(/:/).first.strip.prepend(":")' | pipewrench -s '"slice(#{join ", "})"'
