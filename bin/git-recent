@@ -1,0 +1,3 @@
+# List recently accessed git branches
+count=${1:-10}
+git reflog  | grep checkout | ruby -ne 'puts $_[/from (.+) to/, 1]' | ruby -e 'puts $<.to_a.uniq' | head -n $count
