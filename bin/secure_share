@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PASSWORD="$(pwgen -N 1 -yAB 12)"
+MSG="$(openssl aes-256-cbc -e -a -k "$PASSWORD")"
+
+echo "=== SEND THIS COMMAND ==="
+echo "openssl aes-256-cbc -d -a <<DATA"
+echo "$MSG"
+echo DATA
+echo
+
+echo "=== SHARE THIS PASSWORD OUT OF BAND ==="
+echo "$PASSWORD"
