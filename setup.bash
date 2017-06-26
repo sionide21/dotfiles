@@ -10,5 +10,17 @@ _dotfile() {
     [ -e "$rcfile" ] || ln -s "$_dotfiles_dir/dotfiles/$1" "$rcfile"
 }
 
+_dotdir() {
+    local rcfile rcdir dotdir
+    dotdir="$_dotfiles_dir/dotfiles/$1"
+    rcdir="$HOME/.$1"
+    [ -d "$rcdir" ] || mkdir "$rcdir"
+    for file in $(find "$dotdir" -type f); do
+        rcfile="$rcdir/${file#$dotdir}"
+        [ -e "$rcfile" ] || ln -s "$file" "$rcfile"
+    done
+}
+
 _dotfile vimrc.vim
 _dotfile ctags.conf
+_dotdir emacs.d
