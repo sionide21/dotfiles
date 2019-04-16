@@ -22,13 +22,13 @@ retags() {
 
 # cd, but better
 gt() {
-    app_path $1 && cd $APP_PATH
+    app_path "$1" && cd "$APP_PATH"
 }
 complete -F _poi_completion gt
 
 # Open app in atom
 edit() {
-    app_path $1 && atom $APP_PATH
+    app_path "$1" && atom "$APP_PATH"
 }
 complete -F _poi_completion edit
 
