@@ -35,7 +35,14 @@
 ;; Enable file browser sidebar
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
-(neotree-show)
+
+;; Add a flag to show neo-tree on launch
+(setq flag-enable-neotree (member "-tree" command-line-args))
+(setq command-line-args (delete "-tree" command-line-args))
+
+(if flag-enable-neotree
+  (neotree-show))
+
 ;;(save-current-buffer (neotree-show))
 
 ;; Fuzzy Tab Completion
