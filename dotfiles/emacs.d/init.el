@@ -32,6 +32,9 @@
 (setq split-width-threshold nil)  ; Don't auto-split windows
 (setq make-backup-files nil)      ; Don't create backup~ files
 
+;; Home/End goes to beginning/end of line instead of top/bottom of file
+(global-set-key (kbd "<home>") 'beginning-of-line)
+(global-set-key (kbd "<end>") 'end-of-line)
 
 ;; Enable file browser sidebar
 (require 'neotree)
