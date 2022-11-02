@@ -1,7 +1,7 @@
 _dirs() {
     local dir
     dir=`basename $1`
-    find -L $1 -type d -maxdepth 1 | xargs  -II basename I | grep -v $dir
+    find -L $1 -type d -maxdepth 1 | perl -pe 's/.*\/([^\/]+)$/$1/' | grep -v $dir
 }
 
 _list_projects() {
