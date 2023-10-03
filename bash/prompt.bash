@@ -10,7 +10,7 @@ prompt_command () {
         BRANCH="\$(__git_ps1 '[ %s ] ')"
     fi
     local TIME=`fmt_time` # format time for prompt string
-    local LOAD=`uptime|awk '{min=NF-2;print $min}'`
+    local LOAD=`uptime|awk '{min=NF-2;print $min}'|sed 's/,//'`
     local GREEN="\[\033[0;32m\]"
     local CYAN="\[\033[0;36m\]"
     local BCYAN="\[\033[1;36m\]"
