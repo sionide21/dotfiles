@@ -3,7 +3,7 @@ app_path() {
         APP_PATH="$PWD"
     else
         local arg=`basename $1`
-        APP_PATH="$PROJECTS_DIR/$arg"
+        APP_PATH="$(realpath "$PROJECTS_DIR/$arg")"
         if [ ! -d "$APP_PATH" ]; then
             echo "Cannot find $1"
             return -1
