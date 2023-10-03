@@ -1,3 +1,4 @@
 # List recently accessed git branches
+alias ruby="/usr/bin/ruby --disable=gems"
 count=${1:-10}
-git reflog  | grep checkout | ruby -ne 'puts $_[/from (.+) to/, 1]' | ruby -e 'puts $<.to_a.uniq' | head -n $count
+git reflog  | grep 'checkout: moving from' | ruby -ne 'puts $_[/from (.+) to/, 1]' | ruby -e 'puts $<.to_a.uniq' | head -n $count
